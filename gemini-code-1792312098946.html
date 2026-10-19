@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agricultural Productivity & Drainage Issues</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Leaflet CSS & JS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <style>
+        body {
+            background-color: #f7f5ed;
+            color: #2d3748;
+        }
+        #map {
+            height: 480px;
+            width: 100%;
+            border-radius: 4px;
+        }
+        .stat-card {
+            border-radius: 2px;
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+    </style>
+</head>
+<body class="p-6 font-sans max-w-[1400px] mx-auto">
+
+    <!-- HEADER SECTION -->
+    <header class="flex justify-between items-start border-b-2 border-gray-300 pb-4 mb-4">
+        <div>
+            <h1 class="text-3xl font-serif font-bold text-gray-900 tracking-tight">Agricultural Productivity & Drainage Issues</h1>
+        </div>
+        <div class="text-right text-xs font-semibold text-gray-700 uppercase tracking-wide">
+            <p>Tharushika Rathnayake</p>
+            <p class="text-emerald-800 font-bold">232320D</p>
+        </div>
+    </header>
+
+    <!-- TOP KPI CARDS (4 STATS) -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+        <!-- Card 1 -->
+        <div class="stat-card bg-[#1b4d3e] text-white p-4 flex justify-between items-start shadow-sm">
+            <div>
+                <div class="text-3xl font-bold">46.9%</div>
+                <div class="text-[11px] font-bold tracking-wider mt-1 uppercase text-emerald-200">OF POPULATION IN STUDY AREA</div>
+                <div class="text-[10px] text-gray-300 mt-0.5">10,200,426 people dependent</div>
+            </div>
+            <i class="fa-regular fa-user text-xl opacity-70"></i>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="stat-card bg-[#a0741c] text-white p-4 flex justify-between items-start shadow-sm">
+            <div>
+                <div class="text-3xl font-bold">40.5%</div>
+                <div class="text-[11px] font-bold tracking-wider mt-1 uppercase text-amber-200">AGRICULTURAL LAND</div>
+                <div class="text-[10px] text-amber-100 mt-0.5">4,557.5 km² mapped – Paddy & Crops</div>
+            </div>
+            <i class="fa-solid fa-seedling text-xl opacity-70"></i>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="stat-card bg-[#2d3a34] text-white p-4 flex justify-between items-start shadow-sm">
+            <div>
+                <div class="text-3xl font-bold">38.2%</div>
+                <div class="text-[11px] font-bold tracking-wider mt-1 uppercase text-gray-300">DRAINAGE IMPEDIMENT AREA</div>
+                <div class="text-[10px] text-gray-400 mt-0.5">Waterlogging & canal siltation zones</div>
+            </div>
+            <i class="fa-solid fa-water text-xl opacity-70"></i>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="stat-card bg-[#8c4320] text-white p-4 flex justify-between items-start shadow-sm">
+            <div>
+                <div class="text-3xl font-bold">-24.5%</div>
+                <div class="text-[11px] font-bold tracking-wider mt-1 uppercase text-orange-200">PRODUCTIVITY LOSS</div>
+                <div class="text-[10px] text-orange-100 mt-0.5">Due to poor drainage & floods</div>
+            </div>
+            <i class="fa-solid fa-triangle-exclamation text-xl opacity-70"></i>
+        </div>
+    </div>
+
+    <!-- ADMINISTRATIVE & DEMOGRAPHIC PROFILE STRIP -->
+    <div class="mb-4">
+        <div class="text-[11px] font-bold tracking-widest text-gray-500 uppercase mb-2">ADMINISTRATIVE & DEMOGRAPHIC PROFILE</div>
+        <div class="grid grid-cols-2 md:grid-cols-6 border border-gray-300 bg-white/60 divide-x divide-gray-300 p-3 text-center text-xs">
+            <div>
+                <div class="text-[10px] text-gray-500 font-semibold uppercase">TOTAL AREA</div>
+                <div class="text-xl font-bold text-gray-900 mt-1">11,243.4 <span class="text-xs font-normal">km²</span></div>
+            </div>
+            <div>
+                <div class="text-[10px] text-gray-500 font-semibold uppercase">DISTRICTS</div>
+                <div class="text-xl font-bold text-gray-900 mt-1">9</div>
+            </div>
+            <div>
+                <div class="text-[10px] text-gray-500 font-semibold uppercase">DS DIVISIONS</div>
+                <div class="text-xl font-bold text-gray-900 mt-1">107</div>
+            </div>
+            <div>
+                <div class="text-[10px] text-gray-500 font-semibold uppercase">GN DIVISIONS</div>
+                <div class="text-xl font-bold text-gray-900 mt-1">5,391</div>
+            </div>
+            <div>
+                <div class="text-[10px] text-gray-500 font-semibold uppercase">POPULATION (2024)</div>
+                <div class="text-xl font-bold text-gray-900 mt-1">10,200,426</div>
+            </div>
+            <div>
+                <div class="text-[10px] text-gray-500 font-semibold uppercase">DENSITY (2024)</div>
+                <div class="text-xl font-bold text-gray-900 mt-1">907.2 <span class="text-xs font-normal">/km²</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- NAVIGATION TABS -->
+    <div class="flex border-b border-gray-300 mb-4 text-xs font-bold uppercase tracking-wider overflow-x-auto">
+        <button onclick="switchTab('study-area')" id="tab-study-area" class="px-4 py-2 bg-[#1b4d3e] text-white border-b-2 border-[#1b4d3e]">01 – STUDY AREA</button>
+        <button onclick="switchTab('demography')" id="tab-demography" class="px-4 py-2 text-gray-600 hover:text-gray-900 bg-white/40">02 – DEMOGRAPHY</button>
+        <button onclick="switchTab('land-agri')" id="tab-land-agri" class="px-4 py-2 text-gray-600 hover:text-gray-900 bg-white/40">03 – LAND & AGRICULTURE</button>
+        <button onclick="switchTab('physical')" id="tab-physical" class="px-4 py-2 text-gray-600 hover:text-gray-900 bg-white/40">04 – PHYSICAL ENVIRONMENT</button>
+        <button onclick="switchTab('drainage')" id="tab-drainage" class="px-4 py-2 text-gray-600 hover:text-gray-900 bg-white/40">05 – DRAINAGE ISSUES & REPORTING</button>
+    </div>
+
+    <!-- MAIN MAP INTERFACE CONTAINER -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+        
+        <!-- SIDEBAR: MAP LAYERS & COMMUNITY FORM -->
+        <div class="bg-white/90 border border-gray-300 p-4 rounded text-xs space-y-4">
+            <div>
+                <h3 class="font-bold text-gray-900 text-sm mb-1">Map Layers & Controls</h3>
+                <p class="text-[11px] text-gray-500 leading-tight">Toggle thematic layers and access public issue reporting.</p>
+            </div>
+
+            <div class="space-y-3 pt-2">
+                <label class="flex items-start gap-2 cursor-pointer">
+                    <input type="checkbox" checked onchange="toggleLayer('studyArea', this.checked)" class="mt-0.5">
+                    <div>
+                        <span class="font-bold text-gray-800">Administrative Study Area</span>
+                        <p class="text-[10px] text-gray-500">Primary boundary - 9 districts</p>
+                    </div>
+                </label>
+
+                <label class="flex items-start gap-2 cursor-pointer">
+                    <input type="checkbox" checked onchange="toggleLayer('dsdDrainage', this.checked)" class="mt-0.5">
+                    <div>
+                        <span class="font-bold text-emerald-800">DSD-wise Drainage Issues</span>
+                        <p class="text-[10px] text-gray-500">Waterlogging & blocked canals</p>
+                    </div>
+                </label>
+
+                <label class="flex items-start gap-2 cursor-pointer">
+                    <input type="checkbox" checked onchange="toggleLayer('agriLands', this.checked)" class="mt-0.5">
+                    <div>
+                        <span class="font-bold text-gray-800">Agricultural & Paddy Lands</span>
+                        <p class="text-[10px] text-gray-500">Productivity zones</p>
+                    </div>
+                </label>
+            </div>
+
+            <!-- COMMUNITY REPORTING EMBED SECTION -->
+            <div class="border-t pt-3 mt-3">
+                <h4 class="font-bold text-gray-900 mb-1 flex items-center gap-1">
+                    <i class="fa-solid fa-bullhorn text-emerald-700"></i> Community Engagement
+                </h4>
+                <p class="text-[11px] text-gray-600 mb-2">Report local drainage problems with location coordinates via Google Form.</p>
+                <a href="YOUR_GOOGLE_FORM_LINK" target="_blank" class="block text-center bg-emerald-800 text-white font-semibold py-2 px-3 rounded hover:bg-emerald-900 transition text-xs">
+                    Open Issue Reporting Form <i class="fa-solid fa-external-link-alt ml-1"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- LEAFLET MAP DISPLAY -->
+        <div class="md:col-span-3 border border-gray-300 bg-white p-1 rounded shadow-sm">
+            <div id="map"></div>
+        </div>
+
+    </div>
+
+    <!-- LEAFLET JS SCRIPT -->
+    <script>
+        // Initialize Map
+        const map = L.map('map').setView([7.95, 79.85], 9);
+
+        // Base Map Layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 18,
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Tab Switching Logic
+        function switchTab(tabId) {
+            const tabs = ['study-area', 'demography', 'land-agri', 'physical', 'drainage'];
+            tabs.forEach(t => {
+                const btn = document.getElementById(`tab-${t}`);
+                if (t === tabId) {
+                    btn.className = "px-4 py-2 bg-[#1b4d3e] text-white border-b-2 border-[#1b4d3e]";
+                } else {
+                    btn.className = "px-4 py-2 text-gray-600 hover:text-gray-900 bg-white/40";
+                }
+            });
+        }
+
+        // Layer toggling placeholder
+        function toggleLayer(layerName, isChecked) {
+            console.log(`Layer ${layerName} visibility set to: ${isChecked}`);
+        }
+    </script>
+</body>
+</html>
